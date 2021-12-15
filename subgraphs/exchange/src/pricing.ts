@@ -1,19 +1,13 @@
 import {
-  ADDRESS_ZERO,
-  BIG_DECIMAL_1E18,
   BIG_DECIMAL_ONE,
   BIG_DECIMAL_ZERO,
   DAI,
-  DAI_WETH_PAIR,
   FACTORY_ADDRESS,
   MINIMUM_LIQUIDITY_THRESHOLD_ETH,
   NATIVE,
   SUSHI_USDT_PAIR,
   USDC,
-  USDC_WETH_PAIR,
   USDT,
-  USDT_WETH_PAIR,
-  WHITELIST,
 } from 'const'
 import { Address, BigDecimal, BigInt, dataSource, ethereum, log } from '@graphprotocol/graph-ts'
 import { Pair, Token } from '../generated/schema'
@@ -62,7 +56,9 @@ export function getEthPrice(block: ethereum.Block = null): BigDecimal {
 
     return ethPrice
   }*/
-
+  const USDC_WETH_PAIR = '0xf47f0cc859b78805a2852c744bc1fb6a676af087' // created block 12,747,725 
+  const DAI_WETH_PAIR = '0x9609b0a068806023a8b2e1bd9e741db797092b6d' // created 13,052,720
+  const USDT_WETH_PAIR = '0xf880c5d048696d80425c183b3f77b8693d0b34d5'
   // fetch eth prices for each stablecoin
   const daiPair = Pair.load(DAI_WETH_PAIR)
   const usdcPair = Pair.load(USDC_WETH_PAIR)
