@@ -1,6 +1,6 @@
 specVersion: 0.0.3
 description: Exchange
-repository: https://github.com/sushiswap/sushiswap-subgraph
+repository: https://github.com/luciocc55/sushiswap-subgraph
 schema:
   file: ./schema.graphql
 dataSources:
@@ -20,13 +20,13 @@ dataSources:
         - Factory
       abis:
         - name: Factory
-          file: ../../node_modules/openswap-v2-core/build/UniswapV2Factory.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/UniswapV2Factory.json
         - name: Pair
-          file: ../../node_modules/openswap-v2-core/build/UniswapV2Pair.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/UniswapV2Pair.json
         - name: OpenSwapToken
-          file: ../../node_modules/openswap-v2-core/build/OpenSwapToken.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/OpenSwapToken.json
         - name: ERC20
-          file: ../../node_modules/openswap-v2-core/build/ERC20.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/ERC20.json
         - name: ERC20SymbolBytes
           file: ../../packages/abis/ERC20SymbolBytes.json
         - name: ERC20NameBytes
@@ -59,9 +59,9 @@ templates:
         - User
       abis:
         - name: Pair
-          file: ../../node_modules/openswap-v2-core/build/UniswapV2Pair.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/UniswapV2Pair.json
         - name: Factory
-          file: ../../node_modules/openswap-v2-core/build/UniswapV2Factory.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/UniswapV2Factory.json
       eventHandlers:
         - event: Mint(indexed address,uint256,uint256)
           handler: onMint

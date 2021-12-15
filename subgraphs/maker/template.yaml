@@ -21,13 +21,13 @@ dataSources:
         - Serving
       abis:
         - name: SushiMaker
-          file: ../../node_modules/openswap-v2-core/build/SushiMaker.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/SushiMaker.json
         - name: Pair
-          file: ../../node_modules/openswap-v2-core/build/UniswapV2Pair.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/UniswapV2Pair.json
         - name: ERC20
-          file: ../../node_modules/openswap-v2-core/build/ERC20.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/ERC20.json
         - name: Factory
-          file: ../../node_modules/openswap-v2-core/build/UniswapV2Factory.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/UniswapV2Factory.json
       eventHandlers:
         - event: LogConvert(indexed address,indexed address,indexed address,uint256,uint256,uint256)
           handler: handleLogConvert

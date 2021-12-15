@@ -1,6 +1,6 @@
 specVersion: 0.0.3
 description: Masterchef
-repository: https://github.com/sushiswap/sushiswap-subgraph
+repository: https://github.com/luciocc55/sushiswap-subgraph
 schema:
   file: ./schema.graphql
 dataSources:
@@ -23,13 +23,13 @@ dataSources:
         - User
       abis:
         - name: MasterChef
-          file: ../../node_modules/openswap-v2-core/build/MasterChef.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/MasterChef.json
         - name: Factory
-          file: ../../node_modules/openswap-v2-core/build/UniswapV2Factory.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/UniswapV2Factory.json
         - name: Pair
-          file: ../../node_modules/openswap-v2-core/build/UniswapV2Pair.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/UniswapV2Pair.json
         - name: ERC20
-          file: ../../node_modules/openswap-v2-core/build/ERC20.json
+          file: ../../node_modules/openswap-v2-core/build/contracts/ERC20.json
       eventHandlers:
         - event: Deposit(indexed address,indexed uint256,uint256)
           handler: deposit
@@ -48,10 +48,6 @@ dataSources:
           handler: massUpdatePools
         - function: updatePool(uint256)
           handler: updatePool
-        - function: setMigrator(address)
-          handler: setMigrator
-        - function: migrate(uint256)
-          handler: migrate
         - function: dev(address)
           handler: dev
       file: ./src/masterchef.ts
