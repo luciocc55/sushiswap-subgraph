@@ -1,6 +1,6 @@
 {
   "network": "mainnet",
-  "factory_address": "0xc0aee478e3658e2610c5f7a4a2e1777ce9e4f2ac",
+  "factory_address": "0x5d2F9817303b940C9bB4F47C8C566c5C034d9848",
   "masterchef_address": "0xc2edad668740f1aa35e4d8f227fb8e17dca888cd",
   "sushi_bar_address": "0x8798249c2e607446efb7ad49ec89dd1865ff4272",
   "sushi_maker_address": "0xe11fc0b43ab98eb91e9836129d1ee7c3bc95df50",
@@ -28,7 +28,7 @@
   "minimum_usd_threshold_new_pairs": "3000",
   "minimum_liquidity_threshold_eth": "3",
   "factory": {
-    "address": "0xc0aee478e3658e2610c5f7a4a2e1777ce9e4f2ac",
+    "address": "0x5d2F9817303b940C9bB4F47C8C566c5C034d9848",
     "startBlock": "10794229"
   },
   "whitelist": [

@@ -55,7 +55,7 @@ export const PAIR_BORROW = 'borrow'
 export const PAIR_REPAY = 'repay'
 
 export const FACTORY_ADDRESS = Address.fromString(
-  '0xc0aee478e3658e2610c5f7a4a2e1777ce9e4f2ac'
+  '0x5d2F9817303b940C9bB4F47C8C566c5C034d9848'
 )
 
 export const MASTER_CHEF_ADDRESS = Address.fromString(
