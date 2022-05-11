@@ -12,8 +12,6 @@ type MasterChef @entity {
   # Dev fund address
   devaddr: Bytes!
 
-  # Migrator
-  migrator: Bytes!
 
   # Owner
   owner: Bytes!

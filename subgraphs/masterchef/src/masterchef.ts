@@ -5,10 +5,8 @@ import {
   EmergencyWithdraw,
   MassUpdatePoolsCall,
   MasterChef as MasterChefContract,
-  MigrateCall,
   OwnershipTransferred,
   SetCall,
-  SetMigratorCall,
   UpdatePoolCall,
   Withdraw,
 } from '../generated/MasterChef/MasterChef'
@@ -24,7 +22,7 @@ import {
   MASTER_CHEF_START_BLOCK,
 } from 'const'
 import { History, MasterChef, Pool, PoolHistory, User } from '../generated/schema'
-import { getSushiPrice, getUSDRate } from 'pricing'
+import { getSushiPrice, getUSDRate } from '../../pricing'
 
 import { ERC20 as ERC20Contract } from '../generated/MasterChef/ERC20'
 import { Pair as PairContract } from '../generated/MasterChef/Pair'
@@ -38,12 +36,11 @@ function getMasterChef(block: ethereum.Block): MasterChef {
     masterChef.bonusMultiplier = contract.BONUS_MULTIPLIER()
     masterChef.bonusEndBlock = contract.bonusEndBlock()
     masterChef.devaddr = contract.devaddr()
-    masterChef.migrator = contract.migrator()
     masterChef.owner = contract.owner()
     // poolInfo ...
     masterChef.startBlock = contract.startBlock()
-    masterChef.sushi = contract.sushi()
-    masterChef.sushiPerBlock = contract.sushiPerBlock()
+    masterChef.sushi = contract.OpenSwap()
+    masterChef.sushiPerBlock = contract.OpenSwapPerBlock()
     masterChef.totalAllocPoint = contract.totalAllocPoint()
     // userInfo ...
     masterChef.poolCount = BIG_INT_ZERO
@@ -223,33 +220,6 @@ export function set(call: SetCall): void {
   pool.save()
 }
 
-export function setMigrator(call: SetMigratorCall): void {
-  log.info('Set migrator to {}', [call.inputs._migrator.toHex()])
-
-  const masterChef = getMasterChef(call.block)
-  masterChef.migrator = call.inputs._migrator
-  masterChef.save()
-}
-
-export function migrate(call: MigrateCall): void {
-  const masterChefContract = MasterChefContract.bind(MASTER_CHEF_ADDRESS)
-
-  const pool = getPool(call.inputs._pid, call.block)
-
-  const poolInfo = masterChefContract.poolInfo(call.inputs._pid)
-
-  const pair = poolInfo.value0
-
-  const pairContract = PairContract.bind(pair as Address)
-
-  pool.pair = pair
-
-  const balance = pairContract.balanceOf(MASTER_CHEF_ADDRESS)
-
-  pool.balance = balance
-
-  pool.save()
-}
 
 export function massUpdatePools(call: MassUpdatePoolsCall): void {
   log.info('Mass update pools', [])

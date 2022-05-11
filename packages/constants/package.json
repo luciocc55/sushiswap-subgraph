@@ -6,8 +6,8 @@
   "private": true,
   "main": "index.ts",
   "scripts": {
-    "codegen": "true",
-    "build": "true",
+    "codegen": "(exit 0)",
+    "build": "(exit 0)",
     "prepare:bsc": "mustache ../../config/bsc.json index.template.ts > index.ts",
     "prepare:fantom": "mustache ../../config/fantom.json index.template.ts > index.ts",
     "prepare:goerli": "mustache ../../config/goerli.json index.template.ts > index.ts",
